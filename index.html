@@ -7,14 +7,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* --- RESET & VARIABLES --- */
+        /* --- RESET & VARIABLES (Black & Gradient Theme) --- */
         :root {
-            --bg-color: #0a192f;       /* Deep Navy */
-            --card-bg: #112240;        /* Light Navy */
-            --text-main: #ccd6f6;      /* Lightest Slate */
-            --text-muted: #8892b0;     /* Slate */
-            --accent: #64ffda;         /* Teal/Green Accent */
-            --line-color: #233554;     /* Dark Blue Line */
+            --bg-color: #050505;       /* True Black */
+            --card-bg: #101010;        /* Dark Card */
+            --border: #262626;         /* Subtle Border */
+            
+            /* Typography */
+            --text-main: #e5e5e5;      /* Main Text */
+            --text-muted: #a3a3a3;     /* Secondary Text */
+            
+            /* Accents */
+            --primary: #3b82f6;        /* Bright Blue */
+            --secondary: #8b5cf6;      /* Purple */
+            --gradient: linear-gradient(90deg, #60a5fa, #a78bfa); /* The Hero Gradient */
+            
+            --tag-bg: rgba(59, 130, 246, 0.15); /* Blue background for tags */
+            --tag-text: #60a5fa;                /* Blue text for tags */
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,7 +32,7 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7; /* Better readability */
             padding-bottom: 100px;
         }
 
@@ -32,9 +41,9 @@
 
         /* --- LAYOUT --- */
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 30px;
         }
 
         /* --- NAVBAR --- */
@@ -42,8 +51,8 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            padding: 30px 0;
-            margin-bottom: 60px;
+            padding: 40px 0;
+            margin-bottom: 80px;
         }
         
         .nav-links { display: flex; align-items: center; }
@@ -51,55 +60,65 @@
             margin-left: 32px; 
             font-size: 0.9rem; 
             font-family: 'Fira Code', monospace;
-            color: var(--text-main); 
+            color: var(--text-muted); 
+            font-weight: 500;
         }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover { color: var(--primary); }
         
         .resume-btn {
-            border: 1px solid var(--accent);
-            padding: 8px 16px;
+            border: 1px solid var(--primary);
+            padding: 8px 18px;
             border-radius: 4px;
-            color: var(--accent) !important;
+            color: var(--primary) !important;
             margin-left: 30px;
             transition: all 0.2s;
+            background: rgba(59, 130, 246, 0.05);
         }
         .resume-btn:hover { 
-            background: rgba(100, 255, 218, 0.1); 
+            background: rgba(59, 130, 246, 0.15); 
         }
 
         /* --- HERO SECTION --- */
         .hero { 
-            min-height: 85vh; 
+            min-height: 80vh; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: flex-start;
-            max-width: 1000px;
+            max-width: 900px;
             margin-top: -60px;
         }
         
         .hero-intro {
             font-family: 'Fira Code', monospace;
-            color: var(--accent);
-            font-size: 1rem; /* Small size as requested */
-            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 24px;
             margin-left: 4px;
         }
         
         .hero-name {
-            font-size: 5rem; /* Huge Name */
+            font-size: 5rem;
             font-weight: 800;
-            color: #e6f1ff;
+            color: #fff;
             line-height: 1.1;
-            margin-bottom: 10px;
+            margin-bottom: 16px;
+            letter-spacing: -2px;
+        }
+        
+        .text-gradient {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .hero-tagline {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
             color: var(--text-muted);
-            line-height: 1.1;
+            line-height: 1.2;
             margin-bottom: 30px;
+            letter-spacing: -1px;
         }
         
         .hero-desc {
@@ -110,18 +129,18 @@
         }
 
         /* --- SECTIONS COMMON --- */
-        section { margin-bottom: 150px; scroll-margin-top: 100px; }
+        section { margin-bottom: 160px; scroll-margin-top: 100px; }
         
         .section-header { 
             display: flex; 
             align-items: center; 
-            margin-bottom: 40px; 
+            margin-bottom: 50px; 
         }
         
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            color: #e6f1ff;
+            color: #fff;
             margin-right: 20px;
             display: flex;
             align-items: center;
@@ -129,11 +148,11 @@
         .section-title::before {
             content: "0" counter(section) ".";
             counter-increment: section;
-            color: var(--accent);
+            color: var(--primary);
             font-family: 'Fira Code', monospace;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 400;
-            margin-right: 10px;
+            margin-right: 12px;
         }
         
         body { counter-reset: section; }
@@ -141,7 +160,7 @@
         .section-line {
             flex-grow: 1;
             height: 1px;
-            background: var(--line-color);
+            background: var(--border);
             max-width: 300px;
         }
 
@@ -149,7 +168,7 @@
         .about-content {
             display: grid;
             grid-template-columns: 3fr 2fr;
-            gap: 50px;
+            gap: 60px;
         }
         
         .about-text p {
@@ -175,59 +194,59 @@
         
         .tech-item::before {
             content: "▹";
-            color: var(--accent);
+            color: var(--primary);
             margin-right: 8px;
         }
 
-        /* --- EXPERIENCE (LINKEDIN STYLE) --- */
+        /* --- EXPERIENCE --- */
         .timeline-container {
-            border-left: 2px solid var(--line-color);
+            border-left: 1px solid var(--border);
             margin-left: 10px;
             padding-left: 30px;
         }
         
         .exp-item {
             position: relative;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         
+        /* The Dot */
         .exp-item::before {
             content: "";
             position: absolute;
-            left: -37px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
+            left: -35px;
+            top: 8px;
+            width: 9px;
+            height: 9px;
             border-radius: 50%;
             background: var(--bg-color);
-            border: 2px solid var(--accent);
+            border: 2px solid var(--primary);
         }
         
         .exp-role {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #e6f1ff;
-            margin-bottom: 5px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
         }
         
         .exp-company {
-            color: var(--accent);
-            font-family: 'Fira Code', monospace;
-            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
         }
         
         .exp-date {
             font-family: 'Fira Code', monospace;
             font-size: 0.85rem;
             color: var(--text-muted);
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             display: block;
         }
         
         .exp-desc li {
             position: relative;
             padding-left: 20px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--text-muted);
             font-size: 1rem;
         }
@@ -236,66 +255,80 @@
             content: "▹";
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--primary);
+            font-size: 14px;
         }
 
-        /* --- PROJECTS GRID --- */
+        /* --- PROJECTS GRID (Your Requested Style) --- */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
         }
         
         .project-card {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            transition: transform 0.2s;
-            cursor: pointer;
-            height: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 32px;
+            border-radius: 12px;
+            transition: transform 0.2s, border-color 0.2s;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
         
         .project-card:hover {
-            transform: translateY(-7px);
+            transform: translateY(-5px);
+            border-color: var(--primary);
         }
         
-        .folder-icon {
-            color: var(--accent);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            display: block;
+        .project-top {
+            margin-bottom: 16px;
         }
         
         .project-title {
-            color: #e6f1ff;
             font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        
+        .project-subtitle {
+             font-size: 0.85rem;
+             color: var(--secondary); /* Purple accent for sub-label */
+             font-weight: 600;
+             margin-bottom: 12px;
+             display: block;
         }
         
         .project-desc {
+            font-size: 0.95rem;
             color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             flex-grow: 1;
         }
         
-        .project-tech {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.8rem;
-            color: var(--text-muted);
+        .tech-stack {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 8px;
             margin-top: auto;
+        }
+        
+        .tech-tag {
+            font-size: 0.75rem;
+            font-family: monospace;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
         }
 
         /* --- CONTACT --- */
         .contact-section { text-align: center; max-width: 600px; margin: 0 auto 100px auto; }
-        .contact-title { font-size: 3rem; color: #e6f1ff; font-weight: 700; margin-bottom: 20px; }
-        .contact-desc { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 50px; }
+        .contact-title { font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 20px; }
+        .contact-desc { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px; }
         
         .btn-container {
             display: flex;
@@ -304,22 +337,23 @@
         }
 
         .big-btn {
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 18px 28px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 16px 32px;
             border-radius: 5px;
             font-family: 'Fira Code', monospace;
             font-size: 1rem;
+            font-weight: 600;
         }
-        .big-btn:hover { background: rgba(100, 255, 218, 0.1); }
+        .big-btn:hover { background: rgba(59, 130, 246, 0.1); }
         
         .big-btn.secondary {
-            border-color: var(--text-muted);
+            border-color: var(--border);
             color: var(--text-main);
         }
         .big-btn.secondary:hover { 
-            border-color: var(--accent);
-            color: var(--accent);
+            border-color: #fff;
+            color: #fff;
         }
 
         /* MOBILE FIXES */
@@ -351,9 +385,9 @@
     <section class="hero">
         <div class="hero-intro">Hi, my name is</div>
         <div class="hero-name">Mihika Maheshwari.</div>
-        <div class="hero-tagline">Building scalable software.</div>
+        <div class="hero-tagline">Architecting robust systems and <span class="text-gradient">intelligent AI.</span></div>
         <div class="hero-desc">
-            I am a student at BITS, Pilani - Hyderabad Campus. My interest lies in ML, AI, NLP, and building & scaling software. I am actively looking for internship opportunities in Software Development and Machine Learning roles.
+            I am a penultimate year student at Birla Institute of Technology and Science, Pilani - Hyderabad Campus. My interest lies in ML, AI, NLP, and building & scaling software.
         </div>
     </section>
 
@@ -366,30 +400,33 @@
         <div class="about-content">
             <div class="about-text">
                 <p>
-                    Hello! I am Mihika, a Computer Science undergraduate currently in my penultimate year at <strong>BITS, Pilani - Hyderabad Campus</strong>.
+                    Hello! I am Mihika, a computer science undergraduate and aspiring software engineer at Birla Institute of Technology and Science, Pilani - Hyderabad Campus.
+                </p>
+                <p>I bring professional experience in building and maintaining large-scale systems on a production level and the ability to debug critical bugs in a fast-paced stressful environment.</p>
+                <p>
+                    I bring strong technical experience in building core systems from scratch, including Version Control Systems and SQL Engines, alongside developing intelligent AI applications. I enjoy debugging critical issues and optimizing performance in complex environments.
                 </p>
                 <p>
-                    My technical interests are deeply rooted in <strong>Machine Learning</strong>, <strong>AI</strong>, and <strong>Natural Language Processing (NLP)</strong>. I am particularly passionate about <strong>Cyber and System Security</strong> and architecting <strong>large-scale distributed systems</strong>. I enjoy bridging the gap between theoretical research and practical, secure software engineering.
+                    My interests lie in ML, AI, NLP, Cyber and System Security, and large-scale distributed systems. I like building scalable and reliable software and applications that bridge the gap between research and production.
                 </p>
                 <p>
-                    When I am not coding, I enjoy expressing myself through <strong>dance</strong>, playing sports like <strong>badminton</strong> and <strong>table tennis</strong>, or spending my free time reading books.
+                    I like to dance, play badminton, and table tennis, and read books during my free time.
                 </p>
             </div>
             
             <div class="about-skills">
-                <p style="color: #e6f1ff; font-weight: 600; margin-bottom: 15px;">Tech Stack:</p>
+                <p style="color: #fff; font-weight: 600; margin-bottom: 15px;">Tech Stack:</p>
                 <div class="tech-stack-list">
-                    <div class="tech-item">C/C++</div>
+                    <div class="tech-item">C</div>
+                    <div class="tech-item">C++</div>
                     <div class="tech-item">Python</div>
-                    <div class="tech-item">Java</div>
                     <div class="tech-item">SQL</div>
+                    <div class="tech-item">Java</div>
                     <div class="tech-item">JavaScript</div>
                     <div class="tech-item">HTML/CSS</div>
                     <div class="tech-item">Git</div>
                     <div class="tech-item">Linux</div>
                     <div class="tech-item">Oracle SQL</div>
-                    <div class="tech-item">Streamlit</div>
-                    <div class="tech-item">Groq LLaMA-3</div>
                 </div>
             </div>
         </div>
@@ -403,7 +440,8 @@
 
         <div class="timeline-container">
             <div class="exp-item">
-                <div class="exp-role">Software Intern <span class="exp-company">@ Bid Alert</span></div>
+                <div class="exp-role">Software Intern</div>
+                <div class="exp-company">Bid Alert</div>
                 <span class="exp-date">May 2025 - July 2025</span>
                 <ul class="exp-desc">
                     <li>Engineered <strong>BidGPT</strong> to deliver context-aware responses across bidding processes, terms, and company-specific queries, reducing manual bid clarification effort by 25-30%.</li>
@@ -417,74 +455,124 @@
 
     <section id="projects">
         <div class="section-header">
-            <h2 class="section-title">Some Things I've Built</h2>
+            <h2 class="section-title">Selected Projects</h2>
             <div class="section-line"></div>
         </div>
-
+        
         <div class="project-grid">
             
             <a href="https://github.com/mihika185/BidAnalyzer" class="project-card">
-                <div class="project-title">Bid Analyzer</div>
-                <div class="project-desc">
-                    AI tool for automated tender document analysis. Reduces manual review time by 60% using PDF parsing and context-aware Q&A.
+                <div class="project-top">
+                    <div class="project-title">Bid Analyzer</div>
+                    <span class="project-subtitle">AI & Automation</span>
                 </div>
-                <div class="project-tech">Python · HTML/CSS · Streamlit</div>
+                <div class="project-desc">
+                    AI tool using Groq LLaMA-3 to parse tender PDFs. Reduces manual review time by 60% with context-aware Q&A.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">GenAI</span>
+                    <span class="tech-tag">LLM</span>
+                    <span class="tech-tag">Groq API</span>
+                </div>
             </a>
 
             <a href="https://github.com/mihika185/TxnShield" class="project-card">
-                <div class="project-title">TxnShield</div>
-                <div class="project-desc">
-                    Credit card fraud detection pipeline achieving 85% recall. Optimized for real-time inference with less than 50ms latency.
+                <div class="project-top">
+                    <div class="project-title">TxnShield</div>
+                    <span class="project-subtitle">Machine Learning</span>
                 </div>
-                <div class="project-tech">Python · ML · SMOTE</div>
+                <div class="project-desc">
+                    Credit card fraud detection pipeline achieving 85% recall. Optimized for real-time inference with <50ms latency.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">ML</span>
+                    <span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">SMOTE</span>
+                </div>
             </a>
 
             <a href="https://github.com/mihika185/SourceTrack" class="project-card">
-                <div class="project-title">SourceTrack</div>
+                <div class="project-top">
+                    <div class="project-title">SourceTrack</div>
+                    <span class="project-subtitle">Systems Engineering</span>
+                </div>
                 <div class="project-desc">
                     A Git-like version control system built from scratch. Features SHA-1 object storage, commit DAGs, and branching.
                 </div>
-                <div class="project-tech">Python · Git Internals</div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Git Internals</span>
+                </div>
             </a>
 
             <a href="https://github.com/mihika185/Relix" class="project-card">
-                <div class="project-title">Relix</div>
+                <div class="project-top">
+                    <div class="project-title">Relix</div>
+                    <span class="project-subtitle">Database Internals</span>
+                </div>
                 <div class="project-desc">
                     In-memory SQL engine with a custom parser. Supports nested-loop joins, complex queries, and primary-key enforcement.
                 </div>
-                <div class="project-tech">Python · SQL Engine</div>
+                <div class="tech-stack">
+                    <span class="tech-tag">SQL Engine</span>
+                    <span class="tech-tag">Parsers</span>
+                </div>
             </a>
 
             <a href="https://github.com/mihika185/MemCore" class="project-card">
-                <div class="project-title">MemCore</div>
-                <div class="project-desc">
-                    User-space OS memory manager. Implements First Fit/Best Fit/Buddy System allocation and virtual memory simulation.
+                <div class="project-top">
+                    <div class="project-title">MemCore</div>
+                    <span class="project-subtitle">OS & Memory</span>
                 </div>
-                <div class="project-tech">Python · OS Internals</div>
+                <div class="project-desc">
+                    User-space OS memory manager implementing First Fit, Best Fit, and Buddy System allocation strategies.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">OS Internals</span>
+                    <span class="tech-tag">Virtual Memory</span>
+                </div>
             </a>
 
             <a href="https://github.com/mihika185/NovaDB" class="project-card">
-                <div class="project-title">NovaDB</div>
-                <div class="project-desc">
-                    Pharmacy management system with normalized relational schemas (3NF) and PL/SQL automation for data integrity.
+                <div class="project-top">
+                    <div class="project-title">NovaDB</div>
+                    <span class="project-subtitle">Database Management</span>
                 </div>
-                <div class="project-tech">MySQL · PL/SQL</div>
+                <div class="project-desc">
+                    Pharmacy management system with normalized relational schemas (3NF) and PL/SQL automation.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">PL/SQL</span>
+                </div>
             </a>
             
-            <a href="https://github.com/mihika185/RoomSketcher" class="project-card">
-                <div class="project-title">RoomSketcher</div>
+             <a href="https://github.com/mihika185/RoomSketcher" class="project-card">
+                <div class="project-top">
+                    <div class="project-title">RoomSketcher</div>
+                    <span class="project-subtitle">Desktop Application</span>
+                </div>
                 <div class="project-desc">
                     2D floor planning desktop application. Features interactive canvas, real-time spatial validation, and session management.
                 </div>
-                <div class="project-tech">Java Swing</div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Java Swing</span>
+                </div>
             </a>
             
-            <a href="https://github.com/mihika185/CampusPath" class="project-card">
-                <div class="project-title">CampusPath</div>
-                <div class="project-desc">
-                    Web-based campus navigation platform with an interactive map and an integrated chatbot for visitors.
+             <a href="https://github.com/mihika185/CampusPath" class="project-card">
+                <div class="project-top">
+                    <div class="project-title">CampusPath</div>
+                    <span class="project-subtitle">Web Development</span>
                 </div>
-                <div class="project-tech">HTML · CSS · JS</div>
+                <div class="project-desc">
+                    Web-based campus navigation platform with interactive maps and integrated chatbot for visitors.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JS</span>
+                </div>
             </a>
         </div>
     </section>
@@ -497,7 +585,8 @@
         
         <div class="timeline-container">
              <div class="exp-item">
-                <div class="exp-role">Teaching Assistant <span class="exp-company">@ BITS Pilani</span></div>
+                <div class="exp-role">Teaching Assistant</div>
+                <div class="exp-company">BITS, Pilani - Hyderabad Campus</div>
                 <span class="exp-date">Jan 2025 - Mar 2025</span>
                 <ul class="exp-desc">
                     <li>Assisted Professor Sourav Bag in managing Chemistry Laboratory sessions.</li>
@@ -506,10 +595,11 @@
             </div>
             
             <div class="exp-item">
-                <div class="exp-role">Member and Mentor <span class="exp-company">@ ACM-W Chapter</span></div>
+                <div class="exp-role">Member and Mentor</div>
+                <div class="exp-company">ACM-W Chapter</div>
                 <ul class="exp-desc">
-                    <li>Provide technical guidance and mentoring to junior students in programming and project development.</li>
-                    <li>Organize workshops and sessions to foster a strong coding culture within the campus community.</li>
+                    <li>Providing technical guidance and mentoring to junior students in programming and project development.</li>
+                    <li>Organizing workshops and sessions to foster a strong coding culture within the campus community.</li>
                 </ul>
             </div>
         </div>
