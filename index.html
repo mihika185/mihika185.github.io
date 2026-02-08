@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mihika Maheshwari | Software Engineer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* --- RESET & VARIABLES --- */
         :root {
-            --bg-color: #0a0a0a;       /* Deep Black */
-            --card-bg: #111111;        /* Slightly lighter for contrast */
-            --border: #333333;         /* Subtle borders */
-            --text-main: #e0e0e0;      /* Clear white/grey */
-            --text-muted: #a0a0a0;     /* Muted text */
-            --accent: #ffffff;         /* White accent for importance */
-            --highlight: #3b82f6;      /* Professional Blue */
+            --bg-color: #050505;       /* True Black */
+            --card-bg: #101010;        /* Card Background */
+            --border: #262626;         /* Dark Borders */
+            
+            /* Typography */
+            --text-main: #e5e5e5;      /* Main Text */
+            --text-muted: #a3a3a3;     /* Secondary Text */
+            
+            /* Accents - The "Pop" of Color */
+            --primary: #3b82f6;        /* Bright Blue */
+            --secondary: #8b5cf6;      /* Purple */
+            --gradient: linear-gradient(90deg, #60a5fa, #a78bfa); /* The Hero Gradient */
+            
+            --tag-bg: rgba(59, 130, 246, 0.15); /* Blue background for tags */
+            --tag-text: #60a5fa;                /* Blue text for tags */
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +40,7 @@
 
         /* --- LAYOUT --- */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -42,14 +50,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 0;
-            margin-bottom: 60px;
+            padding: 24px 0;
+            margin-bottom: 80px;
             border-bottom: 1px solid var(--border);
         }
         .logo { 
-            font-weight: 700; 
+            font-weight: 800; 
             font-size: 1.2rem; 
-            color: var(--accent); 
+            color: #fff; 
             letter-spacing: -0.5px;
         }
         .nav-links { display: flex; align-items: center; }
@@ -59,107 +67,114 @@
             font-weight: 500; 
             color: var(--text-muted); 
         }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover { color: #fff; }
         
         .resume-btn {
             border: 1px solid var(--border);
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 6px;
-            color: var(--accent) !important;
+            color: #fff !important;
+            font-weight: 500;
+            background: #171717;
             transition: all 0.2s;
         }
-        .resume-btn:hover { border-color: var(--text-main); background: #1a1a1a; }
+        .resume-btn:hover { 
+            border-color: var(--primary); 
+            background: rgba(59, 130, 246, 0.1);
+        }
 
         /* --- HERO --- */
-        .hero { margin-bottom: 100px; max-width: 800px; }
+        .hero { margin-bottom: 120px; max-width: 850px; }
         .hero-role {
-            font-size: 0.9rem;
-            color: var(--highlight);
+            font-size: 0.85rem;
+            color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 600;
-            margin-bottom: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
             display: block;
         }
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 800;
-            color: var(--accent);
+            color: #fff;
             line-height: 1.1;
             margin-bottom: 24px;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
         }
+        /* Gradient Text Effect */
+        .text-gradient {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
         .hero p {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 650px;
             line-height: 1.7;
         }
 
         /* --- SECTIONS COMMON --- */
-        section { margin-bottom: 120px; }
-        .section-header { margin-bottom: 40px; }
+        section { margin-bottom: 140px; }
+        .section-header { 
+            display: flex; 
+            align-items: center; 
+            margin-bottom: 40px; 
+        }
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 10px;
+            color: #fff;
+            margin-right: 20px;
+            letter-spacing: -0.5px;
         }
         .section-line {
-            width: 100%;
+            flex-grow: 1;
             height: 1px;
             background: var(--border);
-            margin-top: 10px;
         }
 
         /* --- ABOUT ME --- */
         .about-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 40px;
+            gap: 60px;
         }
-        .about-text p { margin-bottom: 20px; color: var(--text-muted); }
+        .about-text p { margin-bottom: 20px; color: var(--text-muted); font-size: 1.05rem; }
+        
+        .skills-header { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #fff; margin-bottom: 16px; font-weight: 600; }
         .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
         .skill-tag {
-            background: var(--card-bg);
+            background: #171717;
             border: 1px solid var(--border);
-            padding: 6px 12px;
+            padding: 8px 14px;
             font-size: 0.85rem;
             border-radius: 4px;
-            color: var(--text-main);
+            color: #d4d4d4;
+            font-weight: 500;
         }
 
-        /* --- EXPERIENCE (TIMELINE STYLE) --- */
+        /* --- EXPERIENCE --- */
         .exp-item {
+            margin-bottom: 40px;
+            padding-left: 20px;
             border-left: 2px solid var(--border);
-            padding-left: 30px;
-            padding-bottom: 40px;
-            position: relative;
-        }
-        .exp-item:last-child { border-left: 2px solid transparent; }
-        .exp-item::before {
-            content: "";
-            width: 12px;
-            height: 12px;
-            background: var(--bg-color);
-            border: 2px solid var(--highlight);
-            border-radius: 50%;
-            position: absolute;
-            left: -7px;
-            top: 0;
         }
         .exp-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 12px;
+            align-items: baseline;
+            margin-bottom: 8px;
         }
-        .exp-role { font-size: 1.1rem; font-weight: 600; color: var(--accent); }
-        .exp-company { color: var(--highlight); }
+        .exp-role { font-size: 1.2rem; font-weight: 700; color: #fff; }
+        .exp-company { color: var(--primary); font-weight: 600; }
         .exp-date { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--text-muted); }
         .exp-desc li {
             margin-bottom: 8px;
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 1rem;
             list-style-type: disc;
             margin-left: 20px;
         }
@@ -167,72 +182,86 @@
         /* --- PROJECTS GRID --- */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 24px;
         }
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            padding: 30px;
-            border-radius: 8px;
+            padding: 32px;
+            border-radius: 12px;
             transition: transform 0.2s, border-color 0.2s;
             display: flex;
             flex-direction: column;
             height: 100%;
         }
         .project-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--text-muted);
+            transform: translateY(-5px);
+            border-color: var(--primary);
         }
         .project-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         .project-title {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: var(--accent);
+            color: #fff; /* White title for readability */
+            margin-bottom: 4px;
+        }
+        .project-subtitle {
+             font-size: 0.85rem;
+             color: var(--secondary); /* Purple accent for sub-label */
+             font-weight: 600;
+             margin-bottom: 12px;
+             display: block;
         }
         .project-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             flex-grow: 1;
         }
         .tech-stack {
-            font-size: 0.8rem;
-            font-family: monospace;
-            color: var(--highlight);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-top: auto;
+        }
+        .tech-tag {
+            font-size: 0.75rem;
+            font-family: monospace;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
         }
 
         /* --- CONTACT --- */
-        .contact-section { text-align: center; max-width: 600px; margin: 0 auto; }
-        .contact-title { font-size: 2rem; font-weight: 800; color: var(--accent); margin-bottom: 16px; }
-        .contact-text { color: var(--text-muted); margin-bottom: 32px; }
+        .contact-section { text-align: center; max-width: 600px; margin: 0 auto; padding-bottom: 80px; }
+        .contact-title { font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 16px; letter-spacing: -1px; }
+        .contact-text { color: var(--text-muted); margin-bottom: 32px; font-size: 1.1rem; }
         .contact-btn {
             display: inline-block;
-            background: var(--highlight);
+            background: var(--primary);
             color: white;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 6px;
             font-weight: 600;
             margin: 0 10px;
         }
-        .contact-btn:hover { opacity: 0.9; }
+        .contact-btn:hover { background: #2563eb; }
         .contact-btn.secondary {
             background: transparent;
             border: 1px solid var(--border);
             color: var(--text-main);
         }
-        .contact-btn.secondary:hover { border-color: var(--text-main); }
+        .contact-btn.secondary:hover { border-color: #fff; color: #fff; }
 
         /* MOBILE */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Simplified for mobile */
+            .nav-links { display: none; }
             .about-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -253,9 +282,9 @@
     </nav>
 
     <div class="hero">
-        <span class="hero-role">Computer Science Student & Aspiring Software Engineer</span>
-        <h1>Building scalable software <br> and solving complex problems.</h1>
-        <p>I am a final-year student at BITS Pilani with a strong foundation in systems programming and machine learning. I am passionate about engineering robust solutions, from low-level memory managers to intelligent AI pipelines.</p>
+        <span class="hero-role">Third-Year Computer Science Student</span>
+        <h1>Building scalable software <br><span class="text-gradient">and intelligent systems.</span></h1>
+        <p>I am a student at BITS Pilani with a deep focus on **NLP, Generative AI, and Software Engineering**. I don't just write code; I build robust tools and systems that solve complex real-world problems.</p>
     </div>
 
     <section id="about">
@@ -265,21 +294,27 @@
         </div>
         <div class="about-grid">
             <div class="about-text">
-                <p>Hello! I'm Mihika, a Computer Science undergraduate at BITS Pilani. My journey in tech is driven by a curiosity to understand how things work under the hood—whether it's dissecting Git internals or building a custom SQL engine from scratch.</p>
-                <p>Beyond coursework, I actively apply my skills in real-world scenarios, such as developing fraud detection systems and optimizing automated bidding tools. My goal is to leverage my technical expertise to build software that makes a tangible impact.</p>
-                <p>When I'm not coding, I am mentoring junior students at ACM-W or exploring the latest developments in AI and Systems.</p>
+                <p>Hello! I'm Mihika, a Computer Science undergraduate currently in my third year (3-2) at BITS Pilani. My engineering philosophy revolves around building software that is not only functional but scalable and efficient.</p>
+                <p>While I have a strong background in systems programming (building core infrastructure like Git and SQL engines), my primary passion lies in **Natural Language Processing (NLP), AI, and large-scale software development**. I enjoy bridging the gap between theoretical research and practical application.</p>
+                <p>I am currently seeking software engineering internships where I can contribute to impactful projects and further refine my skills in AI and backend development.</p>
             </div>
             <div class="skills-column">
-                <h3 style="color: white; font-size: 1rem; margin-bottom: 16px;">Technical Skills</h3>
+                <div class="skills-header">Core Interests</div>
+                <div class="skills-list" style="margin-bottom: 30px;">
+                    <span class="skill-tag">Software Engineering</span>
+                    <span class="skill-tag">NLP & Generative AI</span>
+                    <span class="skill-tag">Backend Development</span>
+                    <span class="skill-tag">System Design</span>
+                </div>
+
+                <div class="skills-header">Tech Stack</div>
                 <div class="skills-list">
-                    <span class="skill-tag">C/C++</span>
                     <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C/C++</span>
                     <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Git Internals</span>
-                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Java</span>
                     <span class="skill-tag">Streamlit</span>
-                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">Git</span>
                 </div>
             </div>
         </div>
@@ -293,10 +328,12 @@
 
         <div class="exp-item">
             <div class="exp-header">
-                <span class="exp-role">Software Intern</span>
+                <div>
+                    <span class="exp-role">Software Intern</span>
+                    <span class="exp-company"> · Bid Alert</span>
+                </div>
                 <span class="exp-date">May 2025 - July 2025</span>
             </div>
-            <div style="margin-bottom: 10px; color: var(--highlight); font-weight: 500;">Bid Alert</div>
             <ul class="exp-desc">
                 <li>Engineered <strong>BidGPT</strong>, a context-aware AI tool that reduced manual bid clarification effort by <strong>30%</strong>.</li>
                 <li>Implemented on-demand translation features to support a diverse user base.</li>
@@ -306,10 +343,12 @@
 
         <div class="exp-item">
             <div class="exp-header">
-                <span class="exp-role">Teaching Assistant</span>
+                <div>
+                    <span class="exp-role">Teaching Assistant</span>
+                    <span class="exp-company"> · BITS Pilani</span>
+                </div>
                 <span class="exp-date">Jan 2025 - Mar 2025</span>
             </div>
-            <div style="margin-bottom: 10px; color: var(--highlight); font-weight: 500;">BITS Pilani</div>
             <ul class="exp-desc">
                 <li>Assisted Professor Sourav Bag in managing Chemistry Laboratory sessions.</li>
                 <li>Provided guidance and support to students during practical experiments.</li>
@@ -323,85 +362,93 @@
             <div class="section-line"></div>
         </div>
         <div class="project-grid">
-            <a href="https://github.com/mihika185/SourceTrack" class="project-card">
+            
+            <a href="https://github.com/mihika185/BidAnalyzer" class="project-card">
                 <div class="project-top">
-                    <div class="project-title">SourceTrack</div>
+                    <div class="project-title">Bid Analyzer</div>
+                    <span class="project-subtitle">AI & Automation</span>
                 </div>
                 <div class="project-desc">
-                    A Git-like version control system built from scratch. Features SHA-1 object storage, commit DAGs, branching, and 48 validation checks.
+                    AI tool using Groq LLaMA-3 to parse tender PDFs. Reduces manual review time by 60% with context-aware Q&A.
                 </div>
-                <div class="tech-stack">Python · Systems · Git Internals</div>
-            </a>
-
-            <a href="https://github.com/mihika185/Relix" class="project-card">
-                <div class="project-top">
-                    <div class="project-title">Relix (SQL Engine)</div>
+                <div class="tech-stack">
+                    <span class="tech-tag">GenAI</span>
+                    <span class="tech-tag">LLM</span>
+                    <span class="tech-tag">Groq API</span>
                 </div>
-                <div class="project-desc">
-                    In-memory SQL engine with a custom parser. Supports nested-loop joins, complex queries, and primary-key enforcement.
-                </div>
-                <div class="tech-stack">Python · SQL · Parsers</div>
-            </a>
-
-            <a href="https://github.com/mihika185/MemCore" class="project-card">
-                <div class="project-top">
-                    <div class="project-title">MemCore</div>
-                </div>
-                <div class="project-desc">
-                    User-space OS memory manager. Implements First Fit/Best Fit/Buddy System allocation strategies and virtual memory simulation.
-                </div>
-                <div class="tech-stack">Python · OS Internals</div>
             </a>
 
             <a href="https://github.com/mihika185/TxnShield" class="project-card">
                 <div class="project-top">
                     <div class="project-title">TxnShield</div>
+                    <span class="project-subtitle">Machine Learning</span>
                 </div>
                 <div class="project-desc">
-                    Credit card fraud detection pipeline achieving 85% recall. Optimized for real-time inference with less than 50ms latency.
+                    Credit card fraud detection pipeline achieving 85% recall. Optimized for real-time inference with <50ms latency.
                 </div>
-                <div class="tech-stack">ML · Streamlit · SMOTE</div>
+                <div class="tech-stack">
+                    <span class="tech-tag">ML</span>
+                    <span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">SMOTE</span>
+                </div>
             </a>
 
-            <a href="https://github.com/mihika185/BidAnalyzer" class="project-card">
+            <a href="https://github.com/mihika185/SourceTrack" class="project-card">
                 <div class="project-top">
-                    <div class="project-title">Bid Analyzer</div>
+                    <div class="project-title">SourceTrack</div>
+                    <span class="project-subtitle">Systems Engineering</span>
                 </div>
                 <div class="project-desc">
-                    AI tool for automated tender analysis. Reduces manual review time by 60% using PDF parsing and context-aware Q&A.
+                    A Git-like version control system built from scratch. Features SHA-1 object storage, commit DAGs, and branching.
                 </div>
-                <div class="tech-stack">GenAI · Groq API</div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Git Internals</span>
+                </div>
             </a>
 
-            <a href="https://github.com/mihika185/NovaDB" class="project-card">
+            <a href="https://github.com/mihika185/Relix" class="project-card">
+                <div class="project-top">
+                    <div class="project-title">Relix</div>
+                    <span class="project-subtitle">Database Internals</span>
+                </div>
+                <div class="project-desc">
+                    In-memory SQL engine with a custom parser. Supports nested-loop joins, complex queries, and primary-key enforcement.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">SQL Engine</span>
+                    <span class="tech-tag">Parsers</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/mihika185/MemCore" class="project-card">
+                <div class="project-top">
+                    <div class="project-title">MemCore</div>
+                    <span class="project-subtitle">OS & Memory</span>
+                </div>
+                <div class="project-desc">
+                    User-space OS memory manager implementing First Fit, Best Fit, and Buddy System allocation strategies.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">OS Internals</span>
+                    <span class="tech-tag">Virtual Memory</span>
+                </div>
+            </a>
+            
+             <a href="https://github.com/mihika185/NovaDB" class="project-card">
                 <div class="project-top">
                     <div class="project-title">NovaDB</div>
+                    <span class="project-subtitle">Database Management</span>
                 </div>
                 <div class="project-desc">
-                    Pharmacy management system with normalized relational schemas (3NF). Uses PL/SQL triggers for data integrity.
+                    Pharmacy management system with normalized relational schemas (3NF) and PL/SQL automation.
                 </div>
-                <div class="tech-stack">MySQL · PL/SQL</div>
+                <div class="tech-stack">
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">PL/SQL</span>
+                </div>
             </a>
-            
-             <a href="https://github.com/mihika185/RoomSketcher" class="project-card">
-                <div class="project-top">
-                    <div class="project-title">RoomSketcher</div>
-                </div>
-                <div class="project-desc">
-                    2D floor planning desktop application. Features interactive canvas, real-time spatial validation, and session management.
-                </div>
-                <div class="tech-stack">Java Swing</div>
-            </a>
-            
-             <a href="https://github.com/mihika185/CampusPath" class="project-card">
-                <div class="project-top">
-                    <div class="project-title">CampusPath</div>
-                </div>
-                <div class="project-desc">
-                    Web-based campus navigation platform with interactive maps and integrated chatbot for visitors.
-                </div>
-                <div class="tech-stack">HTML · CSS · JavaScript</div>
-            </a>
+
         </div>
     </section>
 
@@ -412,21 +459,23 @@
         </div>
         <div class="exp-item">
             <div class="exp-header">
-                <span class="exp-role">Member and Mentor</span>
+                <div>
+                    <span class="exp-role">Member and Mentor</span>
+                    <span class="exp-company"> · ACM-W Chapter</span>
+                </div>
             </div>
-            <div style="margin-bottom: 10px; color: var(--highlight); font-weight: 500;">ACM-W Chapter</div>
             <ul class="exp-desc">
-                <li>Provide technical guidance and mentoring to junior students in programming and project development.</li>
-                <li>Organize workshops and sessions to foster a strong coding culture within the campus community.</li>
+                <li>Providing technical guidance and mentoring to junior students in programming and project development.</li>
+                <li>Organizing workshops and sessions to foster a strong coding culture within the campus community.</li>
             </ul>
         </div>
     </section>
 
     <section id="contact" class="contact-section">
-        <h2 class="contact-title">Get In Touch</h2>
-        <p class="contact-text">I am currently looking for full-time Software Engineering opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+        <h2 class="contact-title">Let's Connect</h2>
+        <p class="contact-text">I am currently open to Software Engineering opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
         <div>
-            <a href="mailto:mihika.m185@gmail.com" class="contact-btn">Say Hello</a>
+            <a href="mailto:mihika.m185@gmail.com" class="contact-btn">Email Me</a>
             <a href="https://linkedin.com/in/mihika91158" class="contact-btn secondary">LinkedIn</a>
         </div>
     </section>
