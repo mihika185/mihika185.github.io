@@ -1,6 +1,6 @@
 # Mihika Maheshwari
 
-**Computer Science & Engineering Undergraduate @ BITS Pilani - Hyderabad Campys** Hyderabad, India  
+**Computer Science & Engineering Undergraduate @ BITS Pilani - Hyderabad Campus** Hyderabad, India  
 [mihika.m185@gmail.com](mailto:mihika.m185@gmail.com) | [LinkedIn](https://linkedin.com/in/mihika91158) | [GitHub](https://github.com/mihika185)
 
 ---
